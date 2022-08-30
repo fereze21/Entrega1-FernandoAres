@@ -1,0 +1,43 @@
+{% extends "Base.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <h1>Newsletter Basico</h1>
+  
+
+    <h3>Podes buscar un autor que te interese:</h3>
+
+    <form action="/AppFinal/buscar/" method="GET">
+
+        <input type="text" name="nombre" id="nombre">
+
+        <input type="submit" value="Buscar">
+
+
+
+
+    </form>
+
+    
+
+    {% if autores %}
+
+    <p>Estamos buscando al autor de nombre: {{autor}}</p>
+
+    <ul>
+	{% for autor in autores %}
+		<li> Nombre: {{autor.nombre}} </li>
+		<li> DNI: {{autor.DNI}} </li>
+        <li> Tel: {{autor.telefono}} </li>
+        <li> Email: {{autor.email}} </li>
+	{% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}

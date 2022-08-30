@@ -1,0 +1,29 @@
+{% extends "Base.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+ <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+ <h1>Newsletter Basico</h1>
+  
+
+    <h3>BUSCA EL AUTOR EN LA PAGINA DE INICIO Y RECUERDA SU DNI</h3>
+    <h3><p style="color: red;"></p>Si este no existe dalo de alta</h3>
+ {% if miFormulario.errors %}
+
+ <p style="color: red;"> Están mal los datos, revisar</p>
+
+ {% endif %}
+ <form action="" method="POST">{% csrf_token %}
+
+     <!-- Acá está la magia de Django-->
+     
+     <table>
+         {{ miFormulario.as_table }}
+     </table>
+
+     <input type="submit", value="Enviar">
+
+ </form>
+
+{% endblock %}
